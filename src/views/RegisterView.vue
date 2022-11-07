@@ -1,28 +1,73 @@
 <template>
-    <v-form>
-        <v-container fluid>
-            <h1 class="main_title" data-text="SIGN IN">SIGN IN</h1>
-            <v-row>
+  <v-form>
+      <v-container fluid>
+          <h1 class="main_title" data-text="SIGN UP">SIGN UP</h1>
+          <v-row>
+            <v-col class="name" cols="6">
+              <v-text-field  :rules="[rules.required]"
+                      type="text" name="input-10-1" label="First Name"
+                    ></v-text-field>
+            </v-col>
+            <v-col class="surname"  cols="6">
+              <v-text-field  :rules="[rules.required]"
+                      type="text" name="input-10-1" label="Surname"
+                    ></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
                     <v-text-field  :rules="[rules.required, rules.min]"
                         type="email" name="input-10-1" label="Email Address"
                         hint="At least 8 characters" counter></v-text-field>
             </v-row>
-            <v-row>
-                    <v-text-field :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
-                        :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password"
-                        hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
-            </v-row>
-        </v-container>
-        <button class="button"> Login
+          <v-row>
+                  <v-text-field :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
+                      :type="show1 ? 'text' : 'password'" name="input-10-1" label="Password"
+                      hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
+          </v-row>
+          <v-row>
+                  <v-text-field :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :rules="[rules.required, rules.min]"
+                      :type="show1 ? 'text' : 'password'" name="input-10-1" label="Cmfirm Password"
+                      hint="At least 8 characters" counter @click:append="show1 = !show1"></v-text-field>
+          </v-row>
+          <v-row>
+            <v-select
+          :items="items"
+          label="Type of user"
+        ></v-select>
+          </v-row>
+      </v-container>
+      <v-checkbox v-model="checkbox">
+      <template v-slot:label>
+        <div>
+          I agree to the
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <a
+                target="_blank"
+                href=""
+                @click.stop
+                v-on="on"
+              >
+                terms and conditions
+              </a>
+            </template>
+            Opens in new window
+          </v-tooltip>
+        </div>
+      </template>
+    </v-checkbox>
+      <button class="button"> Register
 </button>
-<p class="register-link">Don't have an account? Register <router-link to="/register">here</router-link></p>
-    </v-form>
+<p class="register-link">Already have an account? Sign In <router-link to="/">here</router-link></p>
+  </v-form>
 </template>
 
 <script>
 export default {
     data() {
-        return {
+
+        return { 
+          items: ['Client', 'Service Provider'],
             show1: false,
             rules: {
                 required: value => !!value || 'Required.',
@@ -33,8 +78,8 @@ export default {
     },
 }
 </script>
-
 <style scoped>
+
 .v-form{
     display: flex;
     justify-content: center;
@@ -44,6 +89,12 @@ export default {
     top: 29% !important;
     left: 20% !important;
     width: 60% !important;
+}
+.name{
+  padding-left:0px;
+}
+.surname{
+  padding-right:0px;
 }
 .main_title{
  text-align: center;
@@ -77,11 +128,7 @@ animation:  flicker 4s linear 1s infinite;
   99%{filter:blur(1px) brightness(0);}
   100%{filter:blur(1px) brightness(1);}
 }
-.v-main__wrap{
-    height: 100vh !important;
-    display: flex !important;
-    justify-content: center !important;
-}
+
 
 .button {
  display: inline-block;
@@ -96,11 +143,11 @@ animation:  flicker 4s linear 1s infinite;
  z-index: 1;
  margin-top: 5%;
 }
-
 .register-link{
 position:absolute;
-top:110%;
+top:105%;
 }
+
 @media (min-width:1023px){
     .v-form{
     display: flex;
@@ -108,7 +155,7 @@ top:110%;
     align-items: center;
     flex-direction: column;
     position: absolute !important;
-    top: 29% !important;
+    top: 15% !important;
     left: 26% !important;
     width: 40% !important;
 }
@@ -144,7 +191,18 @@ margin-top: 7%;
 text-align: center;
 margin-top: 7%;
 } 
+
+.v-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute !important;
+    top: 10% !important;
+    left: 20% !important;
 }
+}
+
 .button:before {
  content: "";
  position: absolute;
@@ -191,4 +249,6 @@ margin-top: 7%;
  background-color: orange;
  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
+
+
 </style>
