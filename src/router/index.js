@@ -41,6 +41,18 @@ const routes = [
       return import(/* webpackChunkName: "about" */ '../views/CRMView.vue')
     }
   },
+  {
+    path: "/crm/:id",
+    name: "SingleCRM",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../components/Lead/SingleView.vue"
+      ),
+    props: true,
+  },
 ]
 
 const router = new VueRouter({

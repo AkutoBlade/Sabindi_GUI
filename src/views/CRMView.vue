@@ -2,25 +2,25 @@
     <div id="demo">
         <v-container class="my-2">
             <v-row class="filters">
-                <v-col cols="12" sm="6">
-                    <v-toolbar class="toolbar" >
-                    <v-select :items="items" label="Entry Type"></v-select>
+                <v-col cols="13" sm="6">
+                    <v-toolbar class="toolbar">
+                        <v-select :items="items" label="Entry Type"></v-select>
                     </v-toolbar>
                 </v-col>
-                <v-col cols="12" sm="6">        
-                <v-toolbar class="toolbar" >
-                    <v-text-field hide-details prepend-icon="mdi-magnify" single-line></v-text-field>
+                <v-col cols="13" sm="6">
+                    <v-toolbar class="toolbar">
+                        <v-text-field hide-details prepend-icon="mdi-magnify" single-line></v-text-field>
 
-                    <v-btn  icon>
-                        <v-icon>mdi-plus</v-icon>
-                    </v-btn>
+                        <v-btn icon>
+                            <v-icon>mdi-plus</v-icon>
+                        </v-btn>
 
-                    <v-btn icon>
-                        <v-icon>mdi-sort</v-icon>
-                    </v-btn>
-                    
-                </v-toolbar>
-            </v-col>
+                        <v-btn icon>
+                            <v-icon>mdi-sort</v-icon>
+                        </v-btn>
+
+                    </v-toolbar>
+                </v-col>
             </v-row>
         </v-container>
         <div class="decrease">
@@ -33,7 +33,7 @@
                         <th class="table__heading">Entry Type</th>
                         <th class="table__heading">Contact No.</th>
                         <th class="table__heading">Email Address</th>
-                        <th class="table__heading"></th>
+                        <th class="table__heading">Icons</th>
                     </tr>
                     <tr class="table__row" v-for="lead in leads" :key="lead.lid">
                         <td class="table__content" data-heading="lid">
@@ -49,10 +49,13 @@
                         <td class="table__content" id="image" data-heading="Email Address">
                             {{ lead.emailAddress }}
                         </td>
-                        <td class="table__content icons" data-heading="">
+                        <td class="table__content icons" data-heading="Icons">
                             <v-icon> mdi-pencil</v-icon>
                             <v-icon> mdi-trash-can</v-icon>
-                            <v-icon> mdi-information-outline</v-icon>
+                            <router-link :to="{ name: 'SingleCRM', params: { id: lead.lid } }" class="router-link">
+                                <v-icon> mdi-information-outline</v-icon>
+                            </router-link>
+
                         </td>
                         <!-- <EditModal :product="product" /> -->
                     </tr>
@@ -77,9 +80,15 @@ export default {
 </script>
 
 <style scoped>
-.v-toolbar__content{
+
+.v-application a {
+    color: #1976d2;
+    text-decoration: none !important;
+}
+.v-toolbar__content {
     background-color: white !important;
 }
+
 .sort {
     display: flex;
     justify-content: space-around;

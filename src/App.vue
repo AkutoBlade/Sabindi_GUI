@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app color="black">
+    <v-navigation-drawer  v-model="drawer" app color="black">
       <v-list-item class="backgrd" color="white">
         <v-list-item-content>
           <v-list-item-title class="text-h6">

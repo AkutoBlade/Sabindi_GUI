@@ -25,10 +25,12 @@
 <style scoped>
 .v-bottom-navigation{
   background-color:black;
+  height: 90px !important;
 }
 ::before, ::after {
     text-decoration: inherit;
     color: white;
     vertical-align: inherit;
 }
+
 </style>
