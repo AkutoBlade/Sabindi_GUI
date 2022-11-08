@@ -230,9 +230,9 @@ export default {
   color: orange !important;
 }
 
-/* @media only screen and (max-width:321px) {
+@media only screen and (max-width:321px) {
   .company_logo {
     width: 30%;
   }
-} */
+}
 </style>
