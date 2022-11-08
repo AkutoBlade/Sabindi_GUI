@@ -66,7 +66,7 @@ export default {
         category: [
           "admin"
         ],
-        to: '/wo'
+        to: '/wo'gfit
       },
       {
         title: 'DAR',
