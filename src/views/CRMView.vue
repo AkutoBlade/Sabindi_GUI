@@ -2,18 +2,25 @@
     <div id="demo">
         <v-container class="my-2">
             <v-row class="filters">
-                <v-col cols="6" sm="4">
+                <v-col cols="12" sm="6">
+                    <v-toolbar class="toolbar" >
                     <v-select :items="items" label="Entry Type"></v-select>
+                    </v-toolbar>
                 </v-col>
-                <v-col cols="6" sm="4">
-                    <v-text-field label="Search" hide-details prepend-icon="mdi-magnify" single-line></v-text-field>
-                </v-col>
-                <v-col class="sort"  sm="4">
-                    <v-btn color="black" class="" dark>
-                        <v-icon>mdi-plus</v-icon> ADD
+                <v-col cols="12" sm="6">        
+                <v-toolbar class="toolbar" >
+                    <v-text-field hide-details prepend-icon="mdi-magnify" single-line></v-text-field>
+
+                    <v-btn  icon>
+                        <v-icon>mdi-plus</v-icon>
                     </v-btn>
-                    <v-btn type="button" color="black" dark>SORT</v-btn>
-                </v-col>
+
+                    <v-btn icon>
+                        <v-icon>mdi-sort</v-icon>
+                    </v-btn>
+                    
+                </v-toolbar>
+            </v-col>
             </v-row>
         </v-container>
         <div class="decrease">
@@ -70,11 +77,10 @@ export default {
 </script>
 
 <style scoped>
-.rounded-circle{
-    height: 20px !important;
-    width:20px !important;
+.v-toolbar__content{
+    background-color: white !important;
 }
-.sort{
+.sort {
     display: flex;
     justify-content: space-around;
 }
@@ -108,6 +114,7 @@ export default {
     box-sizing: border-box;
     color: black;
     font-family: "Dosis", sans-serif;
+    /* overflow-x: hidden; */
 }
 
 .table {
@@ -206,21 +213,21 @@ td {
         text-transform: uppercase;
         letter-spacing: 2px;
     }
-    .table{
+
+    .table {
         width: 100%;
     }
+
     .filters {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
-.sort{
-    display: flex;
-    justify-content: flex-start;
-    position:absolute
+    .sort {
 
-}
+        position: absolute
+    }
 
 }
 

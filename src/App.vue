@@ -31,7 +31,7 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar color="black" app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title><img class="company_logo" src="https://i.postimg.cc/Hn0R7B8S/Company-Logo.jpg" alt="">
@@ -89,10 +89,6 @@ export default {
   z-index: 1000 !important;
 }
 
-.v-toolbar__content {
-  background-color: black;
-  color: white;
-}
 
 .backgrd {
   background: linear-gradient(black, orange);
@@ -137,10 +133,7 @@ export default {
   color: white !important;
 }
 
-.mdi-plus::before {
-  content: "\F0415";
-  color: white !important;
-}
+
 
 
 
