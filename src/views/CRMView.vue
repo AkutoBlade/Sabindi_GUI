@@ -1,139 +1,238 @@
 <template>
-<div id="demo">
-  <div class="table-responsive-vertical shadow-z-1">
-  <!-- Table starts here -->
-  <table id="table" class="table table-hover table-mc-light-blue">
-      <thead>
-        <tr>
-          <th>lid</th>
-          <th>Lead Name</th>
-          <th>Entry Type</th>
-          <th>Contact</th>
-          <th>Email Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="lead in leads " :key="lead.lid">
-          <td data-title="lid">{{lead.lid}}</td>
-          <td data-title="Lead Name">{{lead.leadName}}</td>
-          <td data-title="Entry Type">{{lead.entryType}} </td>
-          <td data-title="Contact">{{lead.contact}}</td>
-          <td data-title="Email Address">{{lead.emailAddress}}</td>
-        </tr>  
-      </tbody>
-    </table>
-  </div>
-</div>
+    <div id="demo">
+        <v-container class="my-2">
+            <v-row class="filters">
+                <v-col cols="6" sm="4">
+                    <v-select :items="items" label="Entry Type"></v-select>
+                </v-col>
+                <v-col cols="6" sm="4">
+                    <v-text-field label="Search" hide-details prepend-icon="mdi-magnify" single-line></v-text-field>
+                </v-col>
+                <v-col class="sort"  sm="4">
+                    <v-btn color="black" class="" dark>
+                        <v-icon>mdi-plus</v-icon> ADD
+                    </v-btn>
+                    <v-btn type="button" color="black" dark>SORT</v-btn>
+                </v-col>
+            </v-row>
+        </v-container>
+        <div class="decrease">
+            <div class="table-responsive-vertical shadow-z-1">
+                <!-- Table starts here -->
+                <table class="table table-hover table-mc-light-blue">
+                    <tr>
+                        <th class="table__heading">lid</th>
+                        <th class="table__heading">Lead Name</th>
+                        <th class="table__heading">Entry Type</th>
+                        <th class="table__heading">Contact No.</th>
+                        <th class="table__heading">Email Address</th>
+                        <th class="table__heading"></th>
+                    </tr>
+                    <tr class="table__row" v-for="lead in leads" :key="lead.lid">
+                        <td class="table__content" data-heading="lid">
+                            {{ lead.lid }}
+                        </td>
+                        <td class="table__content" data-heading="Lead Name">{{ lead.leadName }}</td>
+                        <td class="table__content" data-heading="Entry Type">
+                            {{ lead.entryType }}
+                        </td>
+                        <td class="table__content" data-heading="Contact No.">
+                            {{ lead.contact }}
+                        </td>
+                        <td class="table__content" id="image" data-heading="Email Address">
+                            {{ lead.emailAddress }}
+                        </td>
+                        <td class="table__content icons" data-heading="">
+                            <v-icon> mdi-pencil</v-icon>
+                            <v-icon> mdi-trash-can</v-icon>
+                            <v-icon> mdi-information-outline</v-icon>
+                        </td>
+                        <!-- <EditModal :product="product" /> -->
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 export default {
     data() {
-    return {
-      leads: [
-        {lid: 1,leadName: 'Jared Isaacs', entryType:'Seller', contact: '0720515069', emailAddress: 'rared.isaacs@gmail.com' },
-        {lid:2 ,leadName: 'Abigail Jacobs', entryType:'Buyer',contact: '0824740433', emailAddress: 'abigail.jacobs@gmail.com' }
-      ]
+        return {
+            items: ['Buyer', 'Seller', 'Looking to rent', 'Looking to out', 'Maintenance'],
+            leads: [
+                { lid: 1, leadName: 'Jared Isaacs', entryType: 'Seller', contact: '0720515069', emailAddress: 'rared.isaacs@gmail.com' },
+                { lid: 2, leadName: 'Abigail Jacobs', entryType: 'Buyer', contact: '0824740433', emailAddress: 'abigail.jacobs@gmail.com' }
+            ]
+        }
     }
-  }
 }
 </script>
 
 <style scoped>
-/* table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  table-layout: fixed;
+.rounded-circle{
+    height: 20px !important;
+    width:20px !important;
+}
+.sort{
+    display: flex;
+    justify-content: space-around;
 }
 
-table caption {
-  font-size: 1.5em;
-  margin: .5em 0 .75em;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-table tr {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: .35em;
+.filters {
+    display: flex;
+    justify-content: center;
+    width: 50%;
 }
 
-table th,
-table td {
-  padding: .625em;
-  text-align: center;
+.icons {
+    display: flex;
+    justify-content: space-around;
+    padding-right: 2px;
 }
 
-table th {
-  font-size: .85em;
-  letter-spacing: .1em;
-  text-transform: uppercase;
+.decrease {
+    display: flex;
+    justify-content: center;
 }
 
-@media screen and (max-width: 600px) {
-  table {
-    border: 0;
-  }
-
-  table caption {
-    font-size: 1.3em;
-  }
-  
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
+* {
+    margin: 0;
     padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-  }
-  
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: right;
-  }
-  
-  table td::before {
-
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  table td:last-child {
-    border-bottom: 0;
-  }
+    box-sizing: border-box;
+    color: black;
+    font-family: "Dosis", sans-serif;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.table {
+    margin-bottom: 2%;
+}
 
 body {
-  font-family: "Open Sans", sans-serif;
-  line-height: 1.25;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    background-color: #fafafa;
+}
+
+#box {
+    display: flex;
+}
+
+/* button {
+  align-self: center;
+  position: absolute;
+  left: 95%;
+  gap: 10px;
+  height: 50px;
+  width: 80px;
+  border-radius: 20px;
+  border: 1px solid orange;
+  background-color: white;
+  color: orange;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 10px orange;
 } */
+
+td,
+th {
+    padding: 2px;
+    padding: 0.5rem;
+}
+
+th {
+    text-align: left;
+    font-weight: 300;
+    font-size: 20px;
+    font-size: 1.25rem;
+}
+
+td {
+    font-family: "Avenir Next", "Segoe UI", "Lucida Grande", sans-serif;
+}
+
+.table {
+    width: 1600px;
+    padding: 16px;
+    padding: 1rem;
+    box-shadow: 0vw 10px 10px rgba(0, 0, 0, 0.465)
+}
+
+.table__heading {
+    border-bottom: solid 2px orange !important;
+    border-top: solid 2px orange !important;
+}
+
+@media (max-width: 32rem) {
+    .decrease {
+        display: block;
+
+    }
+
+    .table__heading {
+        display: none;
+    }
+
+    .table__content {
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    .table__row {
+        margin: 0.25rem 1rem;
+        padding: 0.5rem 0;
+        display: block;
+        border-bottom: 2px solid orange;
+    }
+
+    .table__content:before {
+        content: attr(data-heading);
+        display: inline-block;
+        width: 5rem;
+        margin-right: 1.2rem;
+        color: #999;
+        font-size: 0.75rem;
+        font-weight: 700;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .table{
+        width: 100%;
+    }
+    .filters {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sort{
+    display: flex;
+    justify-content: flex-start;
+    position:absolute
+
+}
+
+}
+
+h1,
+h4 {
+    margin: 50px auto 50px auto;
+    text-align: center;
+}
+
+@media (max-width:320px) {
+    button {
+        left: 70%;
+    }
+}
 </style>

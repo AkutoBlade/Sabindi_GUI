@@ -142,10 +142,7 @@ export default {
   color: white !important;
 }
 
-.mdi-pencil::before {
-  content: "\F03EB";
-  color: white !important;
-}
+
 
 .mdi-close::before {
   content: "\F0156";
@@ -240,9 +237,9 @@ export default {
   color: orange !important;
 }
 
-@media only screen and (max-width:321px) {
+/* @media only screen and (max-width:321px) {
   .company_logo {
     width: 30%;
   }
-}
+} */
 </style>
