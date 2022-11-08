@@ -1,7 +1,7 @@
 <template>
       <v-container class="grey lighten-5"  >
     <v-row>
-    <v-col cols="12" v-for="tile in tiles" :key="tile.title">
+    <v-col cols="12" sm="3" v-for="tile in tiles" :key="tile.title">
       <v-card
     class="mx-auto card images"
     max-width="344"
@@ -13,7 +13,7 @@
     </v-btn>
     <v-card-text>
 
-      <p class="text-h4 text-center">
+      <p class="text-h4 titles text-center">
        {{tile.title}}
       </p>
     </v-card-text>
@@ -66,13 +66,13 @@ export default {
         category: [
           "admin"
         ],
-        to: '/wo'gfit
+        to: '/wo'
       },
       {
         title: 'DAR',
         icon: 'mdi-chart-box',
         text: '',
-        img: "",
+        img: "https://i.postimg.cc/htJdYKbm/DAR.jpg",
         category: [
           "admin"
         ],
@@ -86,11 +86,18 @@ export default {
 </script>
 
 <style scoped>
+.titles{
+  -webkit-text-stroke: 0.5px rgba(255, 166, 0, 0.46);
+  background-color: rgba(0, 0, 0, 0.502);
+  border-radius: 10px;
+}
 .images{
   background-size: cover;
   background-repeat: no-repeat;
   background-position:center ;
 }
+
+
 .v-application .text-h4 {
     font-size: 2.125rem !important;
     font-weight: 400;
@@ -98,5 +105,9 @@ export default {
     line-height: 2.5rem;
     letter-spacing: 0.0073529412em !important;
     font-family: "Roboto", sans-serif !important;
+}
+
+.grey{
+  margin-bottom:20%;
 }
 </style>
