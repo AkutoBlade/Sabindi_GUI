@@ -3,7 +3,7 @@
         <v-row>
             <v-col>
                 <div class="container_details">
-                    <h1 class="titles" data-text="Personal Details">Personal Details</h1>
+                    <h1 class="titles" data-text="Client Details">Client Details</h1>
                     <br>
                     <v-row>
                         <v-col>Name</v-col>
@@ -28,31 +28,15 @@
                 </div>
             </v-col>
             <v-col>
-                <div class="container_details">
-                    <v-row>
-                        <v-col>Priority level</v-col>
-                        <v-col>:</v-col>
-                        <v-col></v-col>
-                    </v-row>
-                    <br>
-                    <v-row>
-                        <v-col>Interested</v-col>
-                        <v-col>:</v-col>
-                        <v-col></v-col>
-                    </v-row>
-                    <br>
-                    <v-row>
-                        <v-col>Brought</v-col>
-                        <v-col>:</v-col>
-                        <v-col></v-col>
-                    </v-row>
+                <div class="container_details workers">
+                    <h1 class="titles" data-text="Workers">Workers</h1>
                     <br>
                 </div>
             </v-col>
         </v-row>
         <br>
-        <v-row>
-            <div class="container_details">
+        <v-row class="unity">
+            <v-col class="container_details">
                 <h1 class="titles" data-text="Address Details">Address Details</h1>
                 <br>
                 <v-row>
@@ -65,7 +49,14 @@
                     <v-col>:</v-col>
                     <v-col></v-col>
                 </v-row>
-            </div>
+            </v-col>
+            <v-col class="container_details">
+                <h1 class="titles" data-text="Work Status">Work Status</h1>
+                <br>
+                    <!-- <v-checkbox color="green" label="Done"></v-checkbox>
+                    <v-checkbox color="yellow"  label="In Progress"></v-checkbox>
+                    <v-checkbox color="red" label="Aborted"></v-checkbox> -->
+            </v-col>
         </v-row>
         <br>
         <br>
@@ -84,9 +75,17 @@ export default {
 </script>
 
 <style scoped>
-.main_body{
-    width:110%;
+/* .unity{
+    padding: 50px 50px 50px 50px !important;
+} */
+.workers {
+    height: 364.22px
 }
+
+.main_body {
+    width: 110%;
+}
+
 .titles {
     position: relative;
     text-shadow: 0px 0px 10px;
@@ -152,14 +151,19 @@ export default {
     background-color: white;
 }
 
-@media(max-width:320px){
+@media(max-width:320px) {
     .container_details {
-    padding: 1px 50px 1px 50px !important;
-    background-color: white;
-}
-.main_body{
-    background:linear-gradient(white,white);
-    width:110%;
+        padding: 20px 50px 10px 50px !important;
+        background-color: white;
+    }
+
+    .main_body {
+        background: linear-gradient(white, white);
+        width: 110%;
+    }
+
+    .workers {
+    height: 100%;
 }
 }
 </style>

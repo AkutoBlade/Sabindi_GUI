@@ -1,5 +1,5 @@
 <template>
-    <v-bottom-navigation fixed color="orange" v-model="value">
+    <v-bottom-navigation fixed color="#FF8418" v-model="value">
       <v-btn value="recent" v-for="item in items" :key="item.title" :to="item.to">
         <span>{{item.title}}</span>
   
@@ -15,8 +15,10 @@
       data: () => ({
         value: 'recent',
     items: [
-      { title: 'Todo', icon: ' mdi-domain', to: "/" },
-      { title: 'about', icon: ' mdi-message-text', to: "/about" },
+      { title: 'Business', icon: ' mdi-domain', to: "/sp" },
+      { title: 'Admin', icon: ' mdi-account', to: "/admin" },
+      { title: 'Clients', icon: ' mdi-account-group', to: "/clients" }
+     
     ],
   }),
     }

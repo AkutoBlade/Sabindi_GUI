@@ -24,7 +24,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block @click="logOut" to="/signup">
+          <v-btn block @click="logOut" to="/">
             Logout
           </v-btn>
         </div>
@@ -34,7 +34,7 @@
     <v-app-bar color="black" app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title><img class="company_logo" src="https://i.postimg.cc/Hn0R7B8S/Company-Logo.jpg" alt="">
+      <v-toolbar-title><img class="company_logo" src="https://i.postimg.cc/HkgChgDH/Company-Logo.jpg" alt="">
       </v-toolbar-title>
     </v-app-bar>
 
@@ -81,6 +81,22 @@ export default {
 </script>
 
 <style>
+.filters{
+  margin-bottom: 5%;
+}
+.table{
+  background-color: white;
+  border-radius: 10px;
+
+}
+
+.table__heading {
+    border-bottom: solid 2px #FF8418 !important;
+    border-top: none
+}
+.v-main__wrap{
+  background:url("https://i.postimg.cc/0NKwRsL5/Wallpaper.jpg") no-repeat center center/cover;
+}
 .company_logo {
   width: 6.5%;
 }
@@ -91,7 +107,7 @@ export default {
 
 
 .backgrd {
-  background: linear-gradient(black, orange);
+  background: linear-gradient(to top,black, #FF8418);
   border: none !important;
   color: white;
 }
@@ -101,12 +117,12 @@ export default {
 }
 
 .account {
-  color: orange !important;
+  color: #FF8418 !important;
 }
 
 .mdi-account-circle::before {
   content: "\F0009";
-  color: orange !important;
+  color: #FF8418 !important;
 }
 
 .pa-3 {
@@ -115,13 +131,13 @@ export default {
 
 .mdi-microphone::before {
   content: "\F036C";
-  color: orange !important;
+  color: #FF8418 !important;
 }
 
 ::before {
   text-decoration: inherit;
   vertical-align: inherit;
-  color: orange !important;
+  color: #FF8418 !important;
 }
 
 .drw_list {
@@ -142,8 +158,23 @@ export default {
   color: white !important;
 }
 
+.mdi-account-group::before {
+    content: "\F0849";
+    color: white !important;
+}
+
+.mdi-wall::before {
+    content: "\F07FE";
+    color: white !important;
+}
+
+.mdi-home-group::before {
+    content: "\F0DD4";
+    color: white !important;
+}
+
 .v-input--selection-controls__ripple {
-  color: orange;
+  color: #FF8418;
 }
 
 .v-input--selection-controls__ripple:before {
@@ -158,11 +189,11 @@ export default {
   transform-origin: center center;
   transform: scale(0.2);
   transition: inherit;
-  color: orange !important;
+  color: #FF8418 !important;
 }
 
 .v-application .primary--text {
-  color: orange !important;
+  color: #FF8418 !important;
   caret-color: #1976d2 !important;
 }
 
@@ -227,12 +258,23 @@ export default {
 }
 
 .primary {
-  color: orange !important;
+  color: #FF8418 !important;
 }
 
-@media only screen and (max-width:321px) {
+@media (max-width: 425px) {
   .company_logo {
     width: 30%;
   }
+}
+
+
+@media (width: 425px) {
+  .company_logo {
+    width: 25%;
+  }
+}
+
+.v-application a {
+    text-decoration: none !important;
 }
 </style>

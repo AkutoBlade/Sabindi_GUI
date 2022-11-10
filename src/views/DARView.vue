@@ -28,33 +28,31 @@
                 <!-- Table starts here -->
                 <table class="table table-hover table-mc-light-blue">
                     <tr>
-                        <th class="table__heading">lid</th>
-                        <th class="table__heading">Lead Name</th>
-                        <th class="table__heading">Entry Type</th>
-                        <th class="table__heading">Contact No.</th>
-                        <th class="table__heading">Email Address</th>
+                        <th class="table__heading">darid</th>
+                        <th class="table__heading">Client's Name</th>
+                        <th class="table__heading">Address</th>
+                        <th class="table__heading">Area</th>
+                        <th class="table__heading">Claims No.</th>
                         <th class="table__heading">Icons</th>
                     </tr>
-                    <tr class="table__row" v-for="lead in leads" :key="lead.lid">
-                        <td class="table__content" data-heading="lid">
-                            {{ lead.lid }}
+                    <tr class="table__row" v-for="dar in dars" :key="dar.darid">
+                        <td class="table__content" data-heading="darid">
+                            {{ dar.darid }}
                         </td>
-                        <td class="table__content" data-heading="Lead Name">{{ lead.leadName }}</td>
-                        <td class="table__content" data-heading="Entry Type">
-                            {{ lead.entryType }}
+                        <td class="table__content" data-heading="Client's Name">{{ dar.clientsName }}</td>
+                        <td class="table__content" data-heading="Address">
+                            {{ dar.address }}
                         </td>
-                        <td class="table__content" data-heading="Contact No.">
-                            {{ lead.contact }}
+                        <td class="table__content" data-heading="Area">
+                            {{ dar.area }}
                         </td>
-                        <td class="table__content" id="image" data-heading="Email Address">
-                            {{ lead.emailAddress }}
+                        <td class="table__content" id="image" data-heading="Claims No.">
+                            {{ dar.claimsNumber }}
                         </td>
                         <td class="table__content icons" data-heading="Icons">
                             <v-icon> mdi-pencil</v-icon>
                             <v-icon> mdi-trash-can</v-icon>
-                            <router-link :to="{ name: 'SingleCRM', params: { id: lead.lid } }" class="router-link">
-                                <v-icon> mdi-information-outline</v-icon>
-                            </router-link>
+                            <v-icon> mdi-tray-arrow-down</v-icon>
 
                         </td>
                         <!-- <EditModal :product="product" /> -->
@@ -70,9 +68,9 @@ export default {
     data() {
         return {
             items: ['Buyer', 'Seller', 'Looking to rent', 'Looking to out', 'Maintenance'],
-            leads: [
-                { lid: 1, leadName: 'Jared Isaacs', entryType: 'Seller', contact: '0720515069', emailAddress: 'rared.isaacs@gmail.com' },
-                { lid: 2, leadName: 'Abigail Jacobs', entryType: 'Buyer', contact: '0824740433', emailAddress: 'abigail.jacobs@gmail.com' }
+            dars: [
+                { darid: 1, clientsName: 'LJ Van Wyk', address: 'Herchellstraat', area: 'Strand', claimsNumber: '300340986' }
+
             ]
         }
     }
@@ -80,13 +78,11 @@ export default {
 </script>
 
 <style scoped>
-.v-main__wrap{
-    height:1000px;
-}
 .v-application a {
     color: #1976d2;
     text-decoration: none !important;
 }
+
 .v-toolbar__content {
     background-color: white !important;
 }
@@ -106,6 +102,9 @@ export default {
     display: flex;
     justify-content: center;
     width: 50%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+    border-bottom-right-radius: 10px;
 }
 
 .icons {
@@ -129,7 +128,7 @@ export default {
 }
 
 .table {
-    margin-bottom: 10%;
+    margin-bottom: 2%;
 }
 
 body {
@@ -187,7 +186,7 @@ td {
 
 .table__heading {
     border-bottom: solid 2px #FF8418 !important;
-   
+    border-top: none
 }
 
 @media (max-width: 32rem) {
@@ -227,18 +226,13 @@ td {
 
     .table {
         width: 100%;
-        margin-bottom: 10% ;
     }
 
-    /* .filters {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin-top: 1%;
-    margin-bottom: 2%;
-    border-bottom-right-radius: 10px;
-} */
-
+    .filters {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
     .sort {
 
@@ -257,11 +251,5 @@ h4 {
     button {
         left: 70%;
     }
-    .filters {
-     display: block;
-    width: 100%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-}
 }
 </style>

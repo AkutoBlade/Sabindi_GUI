@@ -1,11 +1,12 @@
 <template>
+   <div class="find">
   <v-form>
       <v-container fluid>
           <h1 class="main_title" data-text="SIGN UP">SIGN UP</h1>
           <v-row>
             <v-col class="name" cols="6">
               <v-text-field  :rules="[rules.required]"
-                      type="text" name="input-10-1" label="First Name"
+                      type="text" name="input-10-1" label="Name"
                     ></v-text-field>
             </v-col>
             <v-col class="surname"  cols="6">
@@ -36,7 +37,7 @@
         ></v-select>
           </v-row>
       </v-container>
-      <v-checkbox v-model="checkbox">
+      <v-checkbox color="#FF8418" v-model="checkbox">
       <template v-slot:label>
         <div>
           I agree to the
@@ -47,6 +48,7 @@
                 href=""
                 @click.stop
                 v-on="on"
+                class="light"
               >
                 terms and conditions
               </a>
@@ -58,8 +60,9 @@
     </v-checkbox>
       <button class="button"> Register
 </button>
-<p class="register-link">Already have an account? Sign In <router-link to="/">here</router-link></p>
+<p class="register-link">Already have an account? Sign In <router-link class="light" to="/">here</router-link></p>
   </v-form>
+</div>
 </template>
 
 <script>
@@ -79,22 +82,39 @@ export default {
 }
 </script>
 <style scoped>
-
+.light{
+    color:#FF8418
+}
 .v-form{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: absolute !important;
-    top: 29% !important;
-    left: 20% !important;
-    width: 60% !important;
+    top: 10% !important;
+    left: 10% !important;
+    width: 80% !important;
 }
+
+.find{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    position:relative;
+    top: 0% !important;
+    left: 25% !important;
+    width: 50% !important;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
 .name{
-  padding-left:0px;
+  padding-left:-1px;
 }
 .surname{
-  padding-right:0px;
+  padding-right:-1px;
 }
 .main_title{
  text-align: center;
@@ -105,7 +125,7 @@ export default {
  font-size: 50px;
  /* transform: rotate(90deg); */
   text-shadow: 0px 0px 10px;
-  color: orange!important;
+  color: #FF8418!important;
   text-decoration: underline;
 } 
 .main_title::before{
@@ -149,7 +169,7 @@ top:105%;
 }
 
 @media (min-width:1023px){
-    .v-form{
+    /* .v-form{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -158,7 +178,7 @@ top:105%;
     top: 15% !important;
     left: 26% !important;
     width: 40% !important;
-}
+} */
 .button {
  display: inline-block;
  padding: 12px 24px;
@@ -198,8 +218,23 @@ margin-top: 7%;
     align-items: center;
     flex-direction: column;
     position: absolute !important;
-    top: 10% !important;
-    left: 20% !important;
+    top: 2% !important;
+    left: 10% !important;
+    width: 80%;
+}
+
+.find{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    position:relative;
+    top: 6% !important;
+    left: 10% !important;
+    width: 80% !important;
+    height: 670px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
 }
 }
 
@@ -226,7 +261,7 @@ margin-top: 7%;
  top: 180%;
  width: 160%;
  height: 190%;
- background-color: orange;
+ background-color: #FF8418;
  border-radius: 50%;
  display: block;
  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
@@ -235,18 +270,18 @@ margin-top: 7%;
 
 .button:hover {
  color: #ffffff;
- border: 1px solid orange;
+ border: 1px solid #FF8418;
 }
 
 .button:hover:before {
  top: -35%;
- background-color: orange;
+ background-color: #FF8418;
  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
 .button:hover:after {
  top: -45%;
- background-color: orange;
+ background-color: #FF8418;
  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 

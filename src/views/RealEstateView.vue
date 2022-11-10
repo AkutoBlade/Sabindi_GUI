@@ -78,11 +78,8 @@ export default {
     }
 }
 </script>
-
 <style scoped>
-.v-main__wrap{
-    height:1000px;
-}
+
 .v-application a {
     color: #1976d2;
     text-decoration: none !important;
@@ -129,7 +126,7 @@ export default {
 }
 
 .table {
-    margin-bottom: 10%;
+    margin-bottom: 2%;
 }
 
 body {
@@ -186,8 +183,7 @@ td {
 }
 
 .table__heading {
-    border-bottom: solid 2px #FF8418 !important;
-   
+    border-bottom: solid 2px  #FF8418!important;
 }
 
 @media (max-width: 32rem) {
@@ -209,7 +205,7 @@ td {
         margin: 0.25rem 1rem;
         padding: 0.5rem 0;
         display: block;
-        border-bottom: 2px solid #FF8418;
+        border-bottom: 2px var(--color);
     }
 
     .table__content:before {
@@ -227,18 +223,13 @@ td {
 
     .table {
         width: 100%;
-        margin-bottom: 10% ;
     }
 
-    /* .filters {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    margin-top: 1%;
-    margin-bottom: 2%;
-    border-bottom-right-radius: 10px;
-} */
-
+    .filters {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 
     .sort {
 
@@ -257,11 +248,5 @@ h4 {
     button {
         left: 70%;
     }
-    .filters {
-     display: block;
-    width: 100%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-}
 }
 </style>
